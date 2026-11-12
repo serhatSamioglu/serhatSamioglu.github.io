@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Whoo Knew? Daily Fun Facts</title>
+    <meta
+      name="description"
+      content="One surprising, true fact a day, printed on a vintage ticket. Learn something new in under a minute."
+    />
+    <meta property="og:title" content="Whoo Knew? Daily Fun Facts" />
+    <meta
+      property="og:description"
+      content="One surprising, true fact a day, printed on a vintage ticket."
+    />
+    <meta property="og:image" content="https://serhatsamioglu.github.io/whoo-knew/icon.png" />
+    <meta property="og:type" content="website" />
+    <meta name="apple-itunes-app" content="app-id=6829542354" />
+    <link rel="icon" href="icon.png" />
+    <style>
+      :root {
+        --bg: #f3ece0;
+        --paper: #f8f0e3;
+        --edge: #e6d5b8;
+        --perforation: #c9b48f;
+        --stamp: #c2410c;
+        --title: #2b2118;
+        --text: #5a4a38;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 17px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      main {
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 48px 16px 40px;
+        text-align: center;
+      }
+      .icon {
+        width: 112px;
+        height: 112px;
+        border-radius: 26px;
+        box-shadow: 0 8px 24px rgba(43, 33, 24, 0.18);
+      }
+      h1 {
+        color: var(--title);
+        font-size: 34px;
+        line-height: 1.15;
+        margin: 20px 0 6px;
+      }
+      .tagline {
+        font-size: 19px;
+        margin: 0 0 28px;
+      }
+      .stores {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .lock + .step {
+        margin-top: 28px;
+      }
+      .store {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 200px;
+        padding: 10px 20px;
+        border-radius: 14px;
+        background: var(--title);
+        color: #fff;
+        text-decoration: none;
+        line-height: 1.25;
+      }
+      .store svg {
+        width: 30px;
+        height: 30px;
+        flex: none;
+        fill: currentColor;
+      }
+      .store-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .store small {
+        font-size: 12px;
+        opacity: 0.8;
+      }
+      .store strong {
+        font-size: 20px;
+      }
+      .store.soon {
+        background: transparent;
+        color: var(--text);
+        border: 1px dashed var(--perforation);
+      }
+      .lock {
+        margin: 0 auto 14px;
+        padding: 28px 14px 16px;
+        border-radius: 28px;
+        background: linear-gradient(160deg, #3a2a1c, #1c140d);
+        color: #fff;
+      }
+      .lock-time {
+        font-size: 64px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+      .lock-date {
+        margin: 6px 0 24px;
+        font-size: 15px;
+        opacity: 0.8;
+      }
+      .notification {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        padding: 12px 14px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.16);
+        text-align: left;
+        font-size: 15px;
+        line-height: 1.35;
+      }
+      .notification img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        flex: none;
+      }
+      .notification strong {
+        display: block;
+      }
+      .notification-now {
+        float: right;
+        margin-left: 8px;
+        font-size: 13px;
+        opacity: 0.7;
+      }
+      .step {
+        margin: 0 0 14px;
+        color: var(--stamp);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+      }
+      .ticket {
+        position: relative;
+        background: var(--paper);
+        border: 1px solid var(--edge);
+        border-radius: 18px;
+        padding: 22px 22px 24px;
+        text-align: left;
+        box-shadow: 0 10px 30px rgba(43, 33, 24, 0.08);
+      }
+      .ticket-head {
+        display: flex;
+        justify-content: space-between;
+        color: var(--stamp);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+      }
+      .ticket-head span:last-child {
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+      }
+      .topic {
+        margin: 10px 0 6px;
+        font-size: 14px;
+      }
+      .ticket h2 {
+        color: var(--title);
+        font-size: 24px;
+        line-height: 1.25;
+        margin: 0;
+      }
+      .tear {
+        position: relative;
+        margin: 20px -22px;
+        border-top: 2px dashed var(--perforation);
+      }
+      .tear::before,
+      .tear::after {
+        content: '';
+        position: absolute;
+        top: -11px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--bg);
+      }
+      .tear::before {
+        left: -11px;
+      }
+      .tear::after {
+        right: -11px;
+      }
+      .ticket p {
+        margin: 0;
+      }
+      .summary {
+        color: var(--title);
+        font-weight: 600;
+        margin-bottom: 8px !important;
+      }
+      .features {
+        list-style: none;
+        padding: 0;
+        margin: 36px 0 0;
+        text-align: left;
+      }
+      .features li {
+        padding: 14px 0;
+        border-top: 2px dashed var(--perforation);
+      }
+      .features strong {
+        display: block;
+        color: var(--title);
+      }
+      footer {
+        margin-top: 40px;
+        font-size: 14px;
+      }
+      a {
+        color: var(--stamp);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img class="icon" src="icon.png" alt="" width="112" height="112" />
+      <h1 data-tr="Kim Bilirdi?">Whoo Knew?</h1>
+      <p class="tagline" data-tr="Her gün şaşırtıcı bir bilgi">One surprising fact a day</p>
+
+      <div class="stores">
+        <a class="store" href="https://apps.apple.com/app/id6829542354">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+            />
+          </svg>
+          <span class="store-text">
+            <small data-tr="İndirin:">Download on the</small>
+            <strong>App Store</strong>
+          </span>
+        </a>
+        <span class="store soon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill-rule="evenodd"
+              d="M6.1 8.6 4.4 5.7a.7.7 0 0 1 1.2-.7l1.8 3A11 11 0 0 1 12 7c1.7 0 3.2.4 4.6 1l1.8-3a.7.7 0 0 1 1.2.7l-1.700 2.900A10.500 10.500 0 0 1 23 18H1a10.500 10.500 0 0 1 5.100-9.400ZM7.500 15.200a1.200 1.200 0 1 0 0-2.400 1.200 1.200 0 0 0 0 2.400Zm9 0a1.200 1.200 0 1 0 0-2.400 1.200 1.200 0 0 0 0 2.400Z"
+            />
+          </svg>
+          <span class="store-text">
+            <small data-tr="Çok yakında:">Coming soon to</small>
+            <strong>Google Play</strong>
+          </span>
+        </span>
+      </div>
+
+      <p class="step" data-tr="HER GÜN BİR BİLDİRİM">EVERY DAY, ONE NOTIFICATION</p>
+      <div class="lock">
+        <div class="lock-time">12:30</div>
+        <p class="lock-date" data-tr="Seçtiğin saatte">At the time you choose</p>
+        <div class="notification">
+          <img src="icon.png" alt="" width="40" height="40" />
+          <div>
+            <span class="notification-now" data-tr="şimdi">now</span>
+            <strong data-tr="Su aynı anda hem kaynayıp hem donabilir"
+              >Water can boil and freeze at the same time</strong
+            >
+            <span data-tr="Üçlü noktasında su; katı, sıvı ve gaz hâlinde aynı anda bulunur."
+              >At its triple point, water exists as solid, liquid and gas all at once.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <p class="step" data-tr="DOKUN, BİLETİ AÇ">TAP TO OPEN THE TICKET</p>
+      <article class="ticket">
+        <div class="ticket-head">
+          <span data-tr="KİM BİLİRDİ?">WHOO KNEW?</span>
+          <span>No. 001</span>
+        </div>
+        <p class="topic" data-tr="Bilim">Science</p>
+        <h2 data-tr="Su aynı anda hem kaynayıp hem donabilir">
+          Water can boil and freeze at the same time
+        </h2>
+        <div class="tear"></div>
+        <p class="summary" data-tr="Üçlü noktasında su; katı, sıvı ve gaz hâlinde aynı anda bulunur.">
+          At its triple point, water exists as solid, liquid and gas all at once.
+        </p>
+        <p
+          data-tr="Su için bu, 0,01 °C sıcaklıkta ve yaklaşık 0,006 atmosferlik çok düşük bir basınçta gerçekleşir."
+        >
+          For water, this happens at 0.01 °C and a very low pressure of about 0.006 atmospheres.
+        </p>
+      </article>
+
+      <ul class="features">
+        <li>
+          <strong data-tr="Her gün bir bilgi">One fact, every day</strong>
+          <span data-tr="Seçtiğin saatte gelen günlük hatırlatmayla, bir dakikadan kısa sürede yeni bir şey öğren."
+            >Learn something new in under a minute, with a daily reminder at the time you choose.</span
+          >
+        </li>
+        <li>
+          <strong data-tr="18 konuda 360 bilgi">360 facts across 18 topics</strong>
+          <span data-tr="Bilim, uzay, hayvanlar, tarih ve dahası. Sevdiğin konular önce gelir."
+            >Science, space, animals, history and more. The topics you love come first.</span
+          >
+        </li>
+        <li>
+          <strong data-tr="Biletlerini topla">Collect your tickets</strong>
+          <span data-tr="Okuduğun her gün numaralı bir bilet kazandırır. Serini sürdür, kitaplığını büyüt."
+            >Every day you read earns a numbered ticket. Keep your streak going and grow your library.</span
+          >
+        </li>
+        <li>
+          <strong data-tr="Güvenilir ve sade">Trusted and simple</strong>
+          <span data-tr="Her bilginin kaynağı var. Çevrimdışı çalışır, hesap gerekmez."
+            >Every fact links to a source. Works offline, no account needed.</span
+          >
+        </li>
+      </ul>
+
+      <footer>
+        <a href="privacy.html" data-tr="Gizlilik politikası">Privacy policy</a>
+      </footer>
+    </main>
+    <script>
+      // Show the Turkish copy to visitors whose browser language is Turkish.
+      if ((navigator.language || '').toLowerCase().startsWith('tr')) {
+        document.documentElement.lang = 'tr';
+        document.title = 'Kim Bilirdi? Günlük Bilgiler';
+        document.querySelectorAll('[data-tr]').forEach(function (element) {
+          element.textContent = element.dataset.tr;
+        });
+      }
+    </script>
+  </body>
+</html>
